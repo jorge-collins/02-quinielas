@@ -23,10 +23,7 @@ export const Navbar = () => {
                 priority
             />
             <Spacer />
-            <Text color="white" h2>Q</Text>
-            <Text color="white" h3>uiniela·</Text>
-            <Text color="white" h2>M</Text>
-            <Text color="white" h3>undialista 2022</Text>
+            <Text color="white" h2>Quiniela Mundialista 2022</Text>
         </div>
     );
 };

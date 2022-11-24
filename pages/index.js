@@ -45,7 +45,6 @@ export default function HomePage(props) {
     const { items } = props;
     const { groups } = items;
     
-    let todayMatches = [{}, {}];
     const [matchesToday, setMatchesToday] = useState([]);
 
     const teams = [];
@@ -78,21 +77,38 @@ export default function HomePage(props) {
 
 
     useEffect(() => {
-      
-
         getTodayMatches();
-        // console.log(matchesToday);
-    }, [ matchesToday ])
+    }, [ ])
     
 
     return (
         <Layout title="Quiniela mundialista">
+   
+        <Text css={{ pl: 40, pt: 20 }} h2 color="primary">Los Participantes</Text>
+        <Grid.Container gap={ 4 } justify='center'>
+            {
+                participants.map( ({name, image}) => (
+                    <Grid xs={ 6 } sm={ 3 } md={ 3 } lg={ 2 } xl={ 1 } key={ name }>
+                        <Card isHoverable isPressable>
+                            <Card.Body css={{ p: 0 }}>
+                                <Card.Image
+                                    src={ image }
+                                    height="100%"
+                                    width="100%"
+                                    objectFit="cover"
+                                />
+                            </Card.Body>
+                        </Card>
+                    </Grid>
+                ))
+            }
+        </Grid.Container>
 
             <Text css={{ p: 40 }} h2 color="primary">Los juegos de hoy</Text>
             <Grid.Container gap={ 1 } justify='flex-start'>
                 {
                     matchesToday.map( ( {venue, status, home_team, away_team} ) => (
-                        <Grid xs={ 6 } sm={ 6 } md={ 3 } xl={ 3 } key={ venue }>
+                        <Grid xs={ 12 } sm={ 6 } md={ 3 } xl={ 3 } key={ venue }>
                             <Card>
                                 <Card.Header>
                                     <Row>
@@ -123,7 +139,7 @@ export default function HomePage(props) {
             <Grid.Container gap={ 1 } justify='flex-start'>
                 { 
                     groups.map( ({letter, teams} ) => (
-                        <Grid xs={ 4 } sm={ 3 } md={ 3 } xl={ 1 } key={ letter }>
+                        <Grid xs={ 12 } sm={ 3 } md={ 3 } xl={ 1 } key={ letter }>
                             <Card isHoverable >
                                 <Card.Header>
                                     <Row>
@@ -151,43 +167,10 @@ export default function HomePage(props) {
 
                 }
             </Grid.Container>
-   
-            <Text css={{ pl: 40, pt: 20 }} h2 color="primary">Los Participantes</Text>
-            <Grid.Container gap={ 4 } justify='center'>
-                {
-                    participants.map( ({name, image}) => (
-                        <Grid xs={ 6 } sm={ 3 } md={ 3 } lg={ 2 } xl={ 1 } key={ name }>
-                            <Card isHoverable isPressable>
-                                <Card.Body css={{ p: 0 }}>
-                                    <Card.Image
-                                        src={ image }
-                                        height="100%"
-                                        width="100%"
-                                        objectFit="cover"
-                                    />
-                                </Card.Body>
-                            </Card>
-                        </Grid>
-                    ))
-                }
-            </Grid.Container>
 
         </Layout>
     );
 }
-
-// export default function Home(props) {
-
-//     const { items } = props;
-//     console.log(items);
-//     console.log(participants);
-
-//     return (
-//         <Layout title="Quiniela Mundialista">
-//             <Button color="gradient">Hola mundo</Button>
-//         </Layout>
-//     );
-// }
 
 
 
