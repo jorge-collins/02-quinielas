@@ -20,6 +20,7 @@ export const Navbar = () => {
                 alt="App icon"
                 width={92}
                 height={69}
+                priority
             />
             <Spacer />
             <Text color="white" h2>Q</Text>
