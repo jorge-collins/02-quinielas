@@ -1,4 +1,5 @@
 import { Button } from "@nextui-org/react";
+import axios from "axios";
 import { Layout } from "../components/layouts";
 
 export default function Home(props) {
@@ -16,8 +17,8 @@ export default function Home(props) {
 
 
 export const getStaticProps = async (ctx) => {
-    const data = 'https://worldcupjson.net/teams';
-    // const { data } = await axios.get('https://worldcupjson.net/teams');
+    // const data = 'https://worldcupjson.net/teams';
+    const { data } = await axios.get('https://worldcupjson.net/teams');
     
     return {
         props: {
