@@ -1,7 +1,8 @@
-import { Button, Card, Container, Grid, Row, Spacer, Text } from "@nextui-org/react";
+import { Card, Container, Divider, Grid, Row, Spacer, Text } from "@nextui-org/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Layout } from "../components/layouts";
+import { ParticipantCard } from "../components/participant";
 
 
 const participants = [
@@ -42,6 +43,7 @@ const participants = [
 
 export default function HomePage(props) {
 
+
     const { items } = props;
     const { groups } = items;
     
@@ -75,7 +77,8 @@ export default function HomePage(props) {
         setMatchesToday(data);
     }
 
-
+    console.log(teams);
+    
     useEffect(() => {
         getTodayMatches();
     }, [ ])
@@ -87,19 +90,8 @@ export default function HomePage(props) {
         <Text css={{ pl: 40, pt: 20 }} h2 color="primary">Los Participantes</Text>
         <Grid.Container gap={ 4 } justify='center'>
             {
-                participants.map( ({name, image}) => (
-                    <Grid xs={ 6 } sm={ 3 } md={ 3 } lg={ 2 } xl={ 1 } key={ name }>
-                        <Card isHoverable isPressable>
-                            <Card.Body css={{ p: 0 }}>
-                                <Card.Image
-                                    src={ image }
-                                    height="100%"
-                                    width="100%"
-                                    objectFit="cover"
-                                />
-                            </Card.Body>
-                        </Card>
-                    </Grid>
+                participants.map( ( participant ) => (
+                    <ParticipantCard participant={ participant } key={ participant.name } />
                 ))
             }
         </Grid.Container>
@@ -151,10 +143,22 @@ export default function HomePage(props) {
                                 { teams.map( (team) => (
                                     <Container key={team.name}>
 
+                                        {/* <Divider /> */}
                                         <Row justify='space-between'>
                                             <Text h5 color="cyan">{ team.name }</Text>
                                             <Text h5 color="secondary">{ team.participant }</Text>
                                         </Row>
+                                        <Row>
+                                            <Text h6>
+                                                Puntos: { team.group_points }
+                                            </Text>
+                                        </Row>
+                                        <Row justify='space-between'>
+                                            <Text h6 color="white">
+                                                JJ: { team.games_played } · JG: { team.wins } · JP: { team.losses } · JE: { team.draws }
+                                            </Text>
+                                        </Row>
+                                        <Spacer />
                                     </Container>
                                     
                                     ))
