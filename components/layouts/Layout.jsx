@@ -6,8 +6,8 @@ export const Layout = ({ children, title }) => {
         <>
             <Head>
                 <title>{title || "General App"}</title>
-                <meta name="author" content="Jorge Collins" />
-                <meta name="description" content="Skeleton for every App" />
+                <meta name="author" content="" />
+                <meta name="description" content="Quiniela mundialista 2022" />
             </Head>
 
             <Navbar />
