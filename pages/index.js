@@ -77,7 +77,6 @@ export default function HomePage(props) {
         setMatchesToday(data);
     }
 
-    console.log(teams);
     
     useEffect(() => {
         getTodayMatches();
