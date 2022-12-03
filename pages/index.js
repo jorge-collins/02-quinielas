@@ -6,6 +6,8 @@ import { ParticipantCard } from "../components/participant";
 
 const participants = [
     {
+        imageReady: 'http://corosoftware.com/pics/alexei-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/alexei-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/alexei.png', name: 'Alexei',
         quote: '"¿A donde vas a ir?"',
         teams: ['SEN','FRA','SRB','CMR'], 
@@ -16,6 +18,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/CMR', 
     },
     {
+        imageReady: 'http://corosoftware.com/pics/aden-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/aden-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/aden.png', name: 'Aden',
         quote: '"Si ser gey es el concepto de superhombre..."',
         teams: ['NLD','SAU','ESP','DEU'], 
@@ -26,6 +30,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/DEU', 
     },
     {
+        imageReady: 'http://corosoftware.com/pics/hugo-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/hugo-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/hugo.png', name: 'Carry',
         quote: '"Es imposible que un chango pueda hacer eso"',
         teams: ['ECU','MEX','HRV','PRT'], 
@@ -36,6 +42,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/PRT',         
     },
     {
+        imageReady: 'http://corosoftware.com/pics/cristian-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/cristian-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/cristian.png', name: 'Cristian',
         quote: '"¿[inserte cualquier cosa] es un país?"',
         teams: ['GB-ENG','GB-WLS','CRI','URY'], 
@@ -46,6 +54,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/URY',
     },
     {
+        imageReady: 'http://corosoftware.com/pics/israel-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/israel-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/israel.png', name: 'Isra',
         quote: '"Aliviana el mosquero"',
         teams: ['IRN','USA','POL','BRA'], 
@@ -56,6 +66,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/BRA',
     },
     {
+        imageReady: 'http://corosoftware.com/pics/iesus-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/iesus-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/iesus.png', name: 'Iesus',
         quote: '"Te lo lavas"',
         teams: ['AUS','JPN','BEL','MAR'], 
@@ -66,6 +78,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/MAR',
     },
     {
+        imageReady: 'http://corosoftware.com/pics/raul-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/raul-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/raul.png', name: 'Raúl',
         quote: '"Saco leche pa tu chamaco"',
         teams: ['ARG','TUN','CHE','GHA'], 
@@ -76,6 +90,8 @@ const participants = [
         team4: 'https://countryflagsapi.com/svg/GHA',
     },
     {
+        imageReady: 'http://corosoftware.com/pics/collins-ready.png', 
+        imageDefeated: 'http://corosoftware.com/pics/collins-defeated.png', 
         image: 'http://corosoftware.com/wp-content/uploads/2022/11/jorge.png', name: 'Collins',
         quote: '"¿Quién iba a creer que Bruce Willis estaba muerto?"',
         teams: ['QAT','DNK','CAN','KOR'], 
@@ -115,13 +131,15 @@ export default function HomePage() {
 
         data.forEach( (match) => {
 
-            participants.forEach( ({ image, codes }) => {
+            participants.forEach( ({ imageReady, imageDefeated, codes }) => {
 
                 if ( codes.includes(match.away_team_country) ) {
-                    match.away_team.participant = image;
+                    match.away_team.participant = imageReady;
+                    match.away_team.participant_defeated = imageDefeated;
                 }
                 if ( codes.includes(match.home_team_country) ) {
-                    match.home_team.participant = image;
+                    match.home_team.participant = imageReady;
+                    match.home_team.participant_defeated = imageDefeated;
                 }
     
             })
