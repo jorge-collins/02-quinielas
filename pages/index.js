@@ -185,10 +185,10 @@ export default function HomePage() {
     
 
     return (
-        <Layout title="Quiniela mundialista">
+        <Layout title="World Cup Pool">
 
-        <Text css={{ p: 40 }} h2 color="primary">Los juegos de hoy</Text>
-        <Grid.Container gap={ 1 } justify='flex-start'>
+        <Text css={{ p: 40 }} h2 color="primary">Today Matches</Text>
+        <Grid.Container gap={ 1 } justify='center'>
             {
                 matchesToday.map( ( {venue, status, home_team, away_team} ) => (
                     <Grid xs={ 12 } sm={ 6 } md={ 3 } xl={ 3 } key={ venue }>
@@ -218,7 +218,7 @@ export default function HomePage() {
             }
         </Grid.Container>
    
-            <Text css={{ p: 40 }} h2 color="primary">Los juegos de eliminación directa</Text>
+            <Text css={{ p: 40 }} h2 color="primary">Standings</Text>
             <Grid.Container gap={ 1 } justify='center'>
                 {
                     matches.map( ( {id, venue, stage_name, status, home_team, away_team, winner_code} ) => (
@@ -236,7 +236,7 @@ export default function HomePage() {
                                         <Card css={{ w: 100, h: 100, backgroundColor:"SkyBlue" }}>
                                             <Card.Body css={{ p: 0 }}>
                                                 <Card.Image 
-                                                    src={ (status === 'completed' && winner_code === home_team.country) ? 
+                                                    src={ (status === 'completed' && winner_code !== home_team.country) ? 
                                                         home_team.participant_defeated 
                                                         : 
                                                         home_team.participant 
@@ -253,7 +253,7 @@ export default function HomePage() {
                                         <Card css={{ w: 100, h: 100, backgroundColor:"SkyBlue" }}>
                                             <Card.Body css={{ p: 0 }}>
                                                 <Card.Image 
-                                                    src={ (status === 'completed' && winner_code === away_team.country) ?
+                                                    src={ (status === 'completed' && winner_code !== away_team.country) ?
                                                         away_team.participant_defeated
                                                         :
                                                         away_team.participant 
@@ -290,7 +290,7 @@ export default function HomePage() {
                 }
             </Grid.Container>
 
-            <Text css={{ pl: 40, pt: 20 }} h2 color="primary">Los Participantes</Text>
+            <Text css={{ pl: 40, pt: 20 }} h2 color="primary">Participants</Text>
             <Grid.Container gap={ 4 } justify='center'>
                 {
                     participants.map( ( participant ) => (
@@ -299,7 +299,7 @@ export default function HomePage() {
                 }
             </Grid.Container>
 
-            <Text css={{ p: 40 }} h2 color="primary">Las asignaciones por grupos</Text>
+            {/* <Text css={{ p: 40 }} h2 color="primary">Las asignaciones por grupos</Text>
             <Grid.Container gap={ 1 } justify='flex-start'>
                 { 
                     groups.map( ({letter, teams} ) => (
@@ -336,7 +336,7 @@ export default function HomePage() {
                         </Grid>
                     ))
                 }
-            </Grid.Container>
+            </Grid.Container> */}
 
         </Layout>
     );

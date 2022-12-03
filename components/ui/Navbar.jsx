@@ -23,7 +23,7 @@ export const Navbar = () => {
             priority
         />
         <Spacer />
-        <Text color="white" h2>Quiniela Mundialista 2022</Text>
+        <Text color="white" h2>World Cup Pool 2022</Text>
         </div>
     );
 };
